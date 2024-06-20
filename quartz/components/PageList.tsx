@@ -35,6 +35,8 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
     list = list.slice(0, limit)
   }
 
+  //href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+
   return (
     <ul class="section-ul">
       {list.map((page) => {
@@ -51,7 +53,7 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
               )}
               <div class="desc">
                 <h3>
-                  <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
+                  <a href={`/${resolveRelative(fileData.slug!, page.slug!)}`} class="internal">
                     {title}
                   </a>
                 </h3>
@@ -61,7 +63,7 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
                   <li>
                     <a
                       class="internal tag-link"
-                      href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                      href={`/${resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}`}
                     >
                       {tag}
                     </a>

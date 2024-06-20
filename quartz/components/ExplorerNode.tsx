@@ -172,13 +172,14 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
   if (node.name !== "") {
     folderPath = joinSegments(fullPath ?? "", node.name)
   }
+  //console.log(joinSegments(fullPath ?? "", node.name));
 
   return (
     <>
-      {node.file ? (
+      {node.children.length == 0 ? (
         // Single file node
         <li key={node.file.slug}>
-          <a href={resolveRelative(fileData.slug!, node.file.slug!)} data-for={node.file.slug}>
+          <a href={`/${resolveRelative(fileData.slug!, node.file.slug!)}`} data-for={node.file.slug}>
             {node.displayName}
           </a>
         </li>
@@ -206,7 +207,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
               <div key={node.name} data-folderpath={folderPath}>
                 {folderBehavior === "link" ? (
                   <a
-                    href={resolveRelative(fileData.slug!, folderPath as SimpleSlug)}
+                    href={`/${resolveRelative(fileData.slug!, folderPath as SimpleSlug)}`}
                     data-for={node.name}
                     class="folder-title"
                   >
