@@ -117,7 +117,7 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       if (options.showCurrentPage && slugParts.at(-1) !== "index") {
         crumbs.push({
           displayName: fileData.frontmatter!.title,
-          path: joinSegments(currentPath, slugParts.at(-1)),
+          path: "",
         })
       }
     }
@@ -126,7 +126,7 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       <nav class={classNames(displayClass, "breadcrumb-container")} aria-label="breadcrumbs">
         {crumbs.map((crumb, index) => (
           <div class="breadcrumb-element">
-            <a href={`/${crumb.path}`}>{crumb.displayName}</a>
+            <a href={crumb.path}>{crumb.displayName}</a>
             {index !== crumbs.length - 1 && <p>{` ${options.spacerSymbol} `}</p>}
           </div>
         ))}

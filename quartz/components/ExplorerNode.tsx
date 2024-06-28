@@ -173,10 +173,10 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
 
   return (
     <>
-      {node.children.length == 0 ? (
+      {node.file ? (
         // Single file node
         <li key={node.file.slug}>
-          <a href={`/${resolveRelative(fileData.slug!, node.file.slug!)}`} data-for={node.file.slug}>
+          <a href={resolveRelative(fileData.slug!, node.file.slug!)} data-for={node.file.slug}>
             {node.displayName}
           </a>
         </li>
