@@ -35,8 +35,6 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
     list = list.slice(0, limit)
   }
 
-  //href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
-
   return (
     <ul class="section-ul">
       {list.map((page) => {
