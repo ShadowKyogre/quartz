@@ -20,3 +20,16 @@ export async function glob(
   ).map(toPosixPath)
   return fps as FilePath[]
 }
+
+export function blacklistFolder(
+  path : string = "**",
+  keptExtensions : string[] = [],
+): string {
+  if (keptExtensions.length > 0) {
+    let extResult = ""
+    extResult = `/!(${keptExtensions.map((x) => { `*.{x}` }).join('|')})`
+    return `${path}/**${extResult}`
+  } else {
+    return `{${path}/**,${path}}`
+  }
+}
