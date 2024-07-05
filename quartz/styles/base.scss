@@ -9,6 +9,11 @@ html {
   width: 100vw;
 }
 
+body {
+  background-image: var(--backgroundImage);
+  height: 100vh;
+}
+
 body,
 section {
   margin: 0;

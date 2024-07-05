@@ -7,6 +7,7 @@ export interface ColorScheme {
   secondary: string
   tertiary: string
   highlight: string
+  backgroundImage: string
 }
 
 interface Colors {
@@ -53,6 +54,7 @@ ${stylesheet.join("\n\n")}
   --headerFont: "${theme.typography.header}", ${DEFAULT_SANS_SERIF};
   --bodyFont: "${theme.typography.body}", ${DEFAULT_SANS_SERIF};
   --codeFont: "${theme.typography.code}", ${DEFAULT_MONO};
+  --backgroundImage: ${theme.colors.lightMode.backgroundImage};
 }
 
 :root[saved-theme="dark"] {
@@ -64,6 +66,7 @@ ${stylesheet.join("\n\n")}
   --secondary: ${theme.colors.darkMode.secondary};
   --tertiary: ${theme.colors.darkMode.tertiary};
   --highlight: ${theme.colors.darkMode.highlight};
+  --backgroundImage: ${theme.colors.darkMode.backgroundImage};
 }
 `
 }
